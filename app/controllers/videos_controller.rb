@@ -12,9 +12,21 @@ class VideosController < ApplicationController
   end
 
   def edit
+    @video = Video.find(params[:id])
+    @actual_description = @video.description
+    @video.description = ""
   end
 
+  def update
+    puts "Update method is called!!!"
+    unless params[:video][:description].empty?
+      video = Video.find params[:id]
+      video.description = params[:video][:description]
+      video.save!
 
+      redirect_to videos_path
+    end
+  end
 
   def create
     video = Video.new
@@ -28,8 +40,15 @@ class VideosController < ApplicationController
     redirect_to videos_path
   end
 
+  def destroy
+    puts "Destroy method called!"
+    @video = Video.find params[:id]
+    @video.delete
+
+    redirect_to videos_path
+  end
+
   private
   def video_params
-    param.s
   end
 end

@@ -1,12 +1,12 @@
 <h1>Editar información de cachorro </h1>
 <%= form_with model:@video do |f| %>
   <div>
-    <%= f.label "Agrega la descripción del cachorro" %>
-    <%= f.text_area :description, required: true %>
+    <%= f.label "Descripción actual" %>
+    <%= text_area_tag 'description', @actual_description, disabled: true %>
   </div>
   <div>
-    <%= f.label "Agrega la calificación del cachorro" %>
-    <%= f.text_area :duration, required: true %>
+    <%= f.label "Nueva descripción" %>
+    <%= f.text_area :description %>
   </div>
   <div>
     <%= f.label "Visible?" %>
@@ -14,7 +14,7 @@
   </div>
   <div>
     <%= f.label "Agrega la URL a la imagen del cachorro" %>
-    <%= f.url_field :url, required: true  %>
+    <%= f.url_field :url %>
   </div>
   <div>
     <%= f.submit %>
