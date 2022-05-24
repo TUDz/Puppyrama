@@ -1,0 +1,27 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to "Puppyrama!", '#', class: 'navbar-brand'%>
+    <%# Form to be modified %>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="row">
+<% @videos.each do |video| %>
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem;">
+        <% if video.url %>
+          <%= image_tag video.url %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= video.title %></h5>
+          <p class="card-text"><%= video.description %></p>
+          <%= link_to "More", show_video_path(id: video.id), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+<% end %>
+  
+</div>

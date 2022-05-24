@@ -1,0 +1,26 @@
+<h1>Add a new puppy to collection</h1>
+<%= form_with model:@video do |f| %>
+  <div>
+    <%= f.label "Agrega el nombre del cachorro" %>
+     <%= f.text_field :title, required: true %>
+  </div>
+  <div>
+    <%= f.label "Agrega la descripción del cachorro" %>
+    <%= f.text_area :description, required: true %>
+  </div>
+  <div>
+    <%= f.label "Agrega la calificación del cachorro" %>
+    <%= f.text_area :duration, required: true %>
+  </div>
+  <div>
+    <%= f.label "Visible?" %>
+    <%= f.check_box :visible %>
+  </div>
+  <div>
+    <%= f.label "Agrega la URL a la imagen del cachorro" %>
+    <%= f.url_field :url, required: true  %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
