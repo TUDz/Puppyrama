@@ -11,6 +11,11 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
   end
 
+  def edit
+  end
+
+
+
   def create
     video = Video.new
     video.title = params[:video][:title]
@@ -21,5 +26,10 @@ class VideosController < ApplicationController
 
     video.save
     redirect_to videos_path
+  end
+
+  private
+  def video_params
+    param.s
   end
 end
